@@ -7,7 +7,7 @@ USER root
     #yum-config-manager --enable oso-rhui-rhel-server-releases && \
 #RUN yum-config-manager --disable rhel-7-server-nfv-rpms && \
 RUN INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk" &&   \
-    yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
+    yum install -y --disablerepo=* --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all
 RUN mkdir -p /opt/app-root/jenkins && \
